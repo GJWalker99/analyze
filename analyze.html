@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<title>
+Principal parts
+</title>
+<link rel='icon' href='kentucky_wildcats.ico'/>
+<script>
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-38138916-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+<body>
+<table style='text-align: center;'><tr>
+	<td><table>
+		<!--
+		<tr><td><h1>Cats Claw</h1></td></tr>
+		<tr><td><h2>Computer-Assisted Technology Service</h2></td></tr>
+		<tr><td><h2>Computational Linguist's Automated Workbench</h2></td></tr>
+		-->
+		<tr><td style='
+			font-family:Sans-serif; font-size:30px; text-align:center;'>
+		<span style='color:#08388d; font-size:40px;'>Cats Claw</span><br/>
+		<span style='color:#4e658d;'>
+		<span style='color:#08388d;'>C</span>omputer-<span
+		style='color:#08388d;'>A</span>ssisted <span
+		style='color:#08388d;'>T</span>echnology
+		<span style='color:#08388d;'>S</span>ervice<br/>
+		<span style='color:#08388d;'>C</span>omputational <span
+		style='color:#08388d;'>L</span>inguist's <span
+		style='color:#08388d;'>A</span>utomated <span
+		style='color:#08388d;'>W</span>orkbench</span>
+		</td></tr>
+	</table></td>
+	<td><img src="kentucky_wildcats.gif" alt="logo"/></td>
+</tr></table>
+<h2 style='text-align: center;'>Analyzing principal parts</h2>
+<p>
+Instructions are <a href="#details">below</a>.
+If you use results from this tool, please acknowledge its creators: Raphael
+Finkel and Gregory Stump at the University of Kentucky.
+Send suggestions and comments to
+<a href="mailto:raphael@cs.uky.edu">Raphael Finkel</a>.
+</p>
+<form
+action="principalPartsFull.cgi"
+accept-charset="UTF-8"
+method="post" enctype="multipart/form-data">
+	<table style="background:#FFE0E0">
+	<tr><td> You can enter a chart of paradigms (<span style="font-weight:
+	bold; color:red">but not a plat</span>) here (one column should be labelled
+	CONJ, and another Gloss), and get back a plat ready for
+	hand-tuning.</td></tr>
+	<tr><td><a href="dakota.true">sample chart (Dakota)</a></td></tr>
+	<tr><td><input type="file" name="chart" size="20"/></td></tr>
+	<tr><td> <textarea name="chartData" rows="10" cols="120"></textarea></td></tr>
+    <tr><td><input type="submit" value="Submit"/>
+		<input type="reset" value="reset"/></td></tr>
+	</table>
+	<hr style='border-style:solid'/>
+</form>
+<form
+action="principalPartsFull.cgi"
+accept-charset="UTF-8"
+method="post" enctype="multipart/form-data">
+	<table>
+	<tr style="background:#E0FFE0">
+	<td> Or enter your language's plat here: </td>
+	<td> <textarea name="Text" rows="20" cols="80"></textarea>
+    <input type="reset" value="Clear text and options"/>
+	</td>
+	</tr> <tr style="background:#E0E0FF">
+	<td> or upload it from this file: </td>
+	<td> <input type="file" name="File" size="40"/> </td> </tr>
+    <tr><td><input type="submit" value="Submit"/></td><td></td></tr>
+	<tr style="background:#FFFFE0"> <td> Options: </td> <td> <table>
+		<tr><td> <input type="checkbox" name="latin"/> </td>
+			<td> Assume input is in Latin encoding (instead of UTF-8) </td></tr>
+		<tr><td> <input type="text" name="forceMPS" size="10" value="0"/> </td>
+			<td> Bit pattern of MPSs to force as distillations </td></tr>
+		<tr><td> <input type="checkbox" name="static"/> </td>
+			<td> Compute static principal parts
+			| <input type="checkbox" name="quickStatic"/> 
+			Quick version, if many principal parts
+			</td></tr>
+		<tr><td> <input type="checkbox" name="adaptive"/> </td>
+			<td> Compute adaptive principal parts </td></tr>
+		<tr><td> <input type="checkbox" name="dynamic"/> </td>
+			<td> Compute dynamic principal parts </td></tr>
+		<tr><td> <input type="checkbox" name="grouping"/> </td>
+			<td> Group inflection classes </td></tr>
+		<tr><td> <input type="checkbox" name="center"/> </td>
+			<td> Compute center of inflection classes </td></tr>
+		<tr><td> <input type="checkbox" name="cpred" /> </td>
+			<td> Compute inflection-class predictabilities </td></tr>
+		<tr><td> <input type="checkbox" name="fpred" /> </td>
+			<td> Compute full predictabilities </td></tr>
+		<tr><td></td><td>
+			<input type="checkbox" name="emptyPred" />
+			empty set doesn't predict (that's what the book says)</td></tr>
+		<tr><td> <input type="checkbox" name="predictiveness" /> </td>
+			<td> Compute predictiveness </td></tr>
+		<tr><td> <input type="checkbox" name="MPSentropy" /> </td>
+			<td> Compute MPS entropies </td></tr>
+		<tr><td> <input type="checkbox" name="ConjEntropy" /> </td>
+			<td> Compute inflection-class entropies </td></tr>
+		<tr><td> <input type="text" name="entropyWeight" size="20"/> </td>
+			<td> Weight entropies based on this key (DUPLICATES for
+			inflection-class type frequency)</td></tr>
+		<tr><td> <input type="checkbox" name="katr" /> </td>
+			<td> Compute surface forms </td></tr>
+		<tr><td> <input type="checkbox" name="check" /> </td>
+			<td> Compare surface forms to this file of ground truth 
+			<input type="file" name="truth"/> </td></tr>
+		<tr><td> <input type="checkbox" name="katrPretty" /> </td>
+			<td> Build table of surface forms</td></tr>
+		<tr><td> <input type="checkbox" name="stems"/> </td>
+			<td> Compute plat of stem referrals </td></tr>
+		<tr><td> <input type="text" name="limit" size="1" value="4"/> </td>
+			<td> Number of distillations in patterns</td></tr>
+		<tr><td> <input type="checkbox" name="expand"/> </td>
+			<td> Expand plat based on stem referrals</td></tr>
+		<tr><td> <input type="checkbox" name="referral"/> </td>
+			<td> Replace plat with the stem referrals </td></tr>
+		<tr><td> <input type="checkbox" name="stratify"/> </td>
+			<td> Stratify inflection classes by number of principal parts</td></tr>
+		<tr><td> <input type="checkbox" name="verbose"/> </td>
+			<td> Make the output more verbose</td></tr>
+		<tr><td> <input type="checkbox" name="signature"/> </td>
+			<td> Show what inflection classes have the same signature</td></tr>
+		<tr><td> <input type="text" name="keys" size="20"/> </td>
+			<td> Restrict the plat to inflection classes with given keys</td></tr>
+		<tr><td> <input type="text" name="MPSfilter" size="20"/> </td>
+			<td> Restrict the plat to the MPS names with given substrings</td></tr>
+		<tr><td> <input type="text" name="outputFilter" size="20"/> </td>
+			<td> Restrict the output to inflection classes with given keys</td></tr>
+		<tr><td> <input type="checkbox" name="showFragment"/> </td>
+			<td> Output a data file restricted by given keys and MPS substrings</td></tr>
+		</table>
+	</td></tr> </table>
+	<br/>
+    <input type="submit" value="Submit"/>
+    <input type="reset" value="Clear text"/>
+	<hr style='border-style:solid; width:60%'/>
+</form>
+
+<a id="details"></a>
+<h3>Instructions</h3>
+
+<p>
+A language plat is presented as follows:
+</p>
+<pre><code>
+% any comments you want, running to the end of the line
+% blank lines are acceptable
+
+ABBR 1 1S1C % shorthand used in templates
+
+IC       1sg 1pl 2sg 2pl
+TEMPLATE 1Ao 1As 1At 1At
+conj1    a   a   n   an
+conj2    e   en  n   en
+conj3    i   i   in  in
+conj4    i   i   i   i
+conj5    u   u   n   un  
+conj6    u   un  un  un  
+
+% continuation lines of the above are acceptable; just start
+% them with the same word (such as CONJ or conj5).
+
+STEM 1 present % just a comment describing the stem
+STEM 2 past 
+STEM 3 future
+STEM 4 optative
+STEM 5 frequentative
+
+REFER conj1 2 -&gt; 1
+REFER conj2 2, 3 -&gt; 1
+REFER conj3 2-3 -&gt; 1; 5 -&gt; 4 % if there were 5 stems
+
+LEXEME eat   conj1 1:ede   3:edu   4:ede  5:edr
+LEXEME see   conj2 1:vida  4:vide  5:vidu
+LEXEME sleep conj3 1:dorma 4:dormu
+
+CLASS obstruent b d f g h k p s t v z ʒ
+
+SANDHI a o | =&gt; o % edeao → edeo ; the '|' symbol means end of word
+SANDHI a i o =&gt; io % dormaio → dormio ; spaces are segment boundaries 
+SANDHI n [:obstruent:] =&gt; $1 om $1 % dormaont → dormaitomt
+
+KEYS conj1 short FREQ=3
+KEYS conj2 short FREQ=1
+KEYS conj3 long  animate   FREQ=10
+KEYS conj4 long  inanimate FREQ=2
+KEYS conj5 long  deitic    FREQ=1
+KEYS conj6 long  demonic   FREQ=1
+
+ANALYZE ANY=edeao 1pl=edas 2pl=edeint
+</code></pre>
+</body>
+</html>
+
